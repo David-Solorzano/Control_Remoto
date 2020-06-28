@@ -30,7 +30,7 @@ void USART_Tx(char data){
 }
 
 char USART_Rx(){
-    while((!RCIF)){}
+    while((!RCIF));
     return RCREG;
 }
 
