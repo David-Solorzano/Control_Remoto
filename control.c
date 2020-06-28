@@ -19,7 +19,6 @@ void main(void) {
     int lectura = 0;
     int umbralNuevo = 0;
     int umbralViejo = 0;
-    INTCONbits.GIE = 1;             //Habilita todos los interrupts
     INTCONbits.RBIF = 0;            //Pone la flag del port change en 0
     INTCONbits.RBIE = 1;            //Habilita el port change interrupt           
     INTCONbits.INT0F = 0;
@@ -28,6 +27,8 @@ void main(void) {
     INTCON3bits.INT1E = 1;
     INTEDG0 = 0;
     INTEDG1 = 1;
+    RCONbits.IPEN = 0;
+    INTCONbits.GIE = 1;             //Habilita todos los interrupts
     
     ADCON1 = 0b1110;                //AN0 analógico
     ADCON0bits.CHS = 0;             //AN0
@@ -38,7 +39,6 @@ void main(void) {
     
     TRISBbits.RB0 = 1;
     TRISBbits.RB1 = 1;
-    TRISBbits.RB2 = 0;
     TRISBbits.RB4 = 1;
     TRISBbits.RB5 = 1;
     TRISBbits.RB6 = 1;
@@ -54,23 +54,19 @@ void main(void) {
         umbralNuevo = lectura / 51;
         if (umbralNuevo != umbralViejo){
             if (lectura < 51){
-                USART_Tx("6");
-                LATBbits.LATB2 ^= 1;
+                USART_Tx(6);
             }
             else if(lectura < 102){
-                USART_Tx("7");
-                LATBbits.LATB2 ^= 1;
+                USART_Tx(7);
             }
             else if(lectura < 154){
-                USART_Tx("8");
-                LATBbits.LATB2 ^= 1;
+                USART_Tx(8);
             }
             else if(lectura < 205){
-                USART_Tx("9");
-                LATBbits.LATB2 ^= 1;
+                USART_Tx(9);
             }
             else {
-                USART_Tx("10");
+                USART_Tx(10);
             }
         }
     }
@@ -78,31 +74,25 @@ void main(void) {
 
 void __interrupt() ISR(){
     if (INT0F){
-        USART_Tx("0");                //Adelante
+        USART_Tx(0);                //Adelante
         INT0F = 0;
-        LATBbits.LATB2 ^= 1;
     }
     if (INT1F){
-        USART_Tx("1");                //Atrás
+        USART_Tx(1);                //Atrás
         INT1F = 0;
-        LATBbits.LATB2 ^= 1;
     }
     if (RBIF){
         if (!PORTBbits.RB4){
-            USART_Tx("2");            //Izquierda
-            LATBbits.LATB2 ^= 1;
+            USART_Tx(0);            //Izquierda
         }
         else if (!PORTBbits.RB5){
-            USART_Tx("3");            //Derecha
-            LATBbits.LATB2 ^= 1;
+            USART_Tx(3);            //Derecha
         }
         else if (!PORTBbits.RB6){
-            USART_Tx("4");            //Toggle Luces
-            LATBbits.LATB2 ^= 1;
+            USART_Tx(4);            //Toggle Luces
         }
         else if (!PORTBbits.RB7){
-            USART_Tx("5");            //Toggle modo luces
-            LATBbits.LATB2 ^= 1;
+            USART_Tx(5);            //Toggle modo luces
         }
         
         RBIF = 0;

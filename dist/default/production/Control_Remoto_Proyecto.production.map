@@ -2,11 +2,12 @@ Microchip MPLAB XC8 Compiler V2.20
 
 Linker command line:
 
--W-3 --edf=C:\Program Files\Microchip\xc8\v2.20\pic\dat\en_msgs.txt -cn \
-  -h+dist/default/production\ControlRemoto.X.production.sym \
-  --cmf=dist/default/production\ControlRemoto.X.production.cmf -z -Q18F4550 \
-  -oC:\Users\jairo\AppData\Local\Temp\s11ec.2 --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/production/ControlRemoto.X.production.map -E1 \
+-W-3 --edf=D:\Microchip\xc8\v2.20\pic\dat\en_msgs.txt -cn \
+  -h+dist/default/production\Control_Remoto_Proyecto.production.sym \
+  --cmf=dist/default/production\Control_Remoto_Proyecto.production.cmf -z \
+  -Q18F4550 -oC:\Users\david\AppData\Local\Temp\scno.2 \
+  --defsym=__MPLAB_BUILD=1 \
+  -Mdist/default/production/Control_Remoto_Proyecto.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=060h-07FFh -pstack=STACK \
   -ACODE=00h-07FFFh -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
   -AMEDIUMCONST=0800h-07FFFh -ACOMRAM=01h-05Fh -AABS1=00h-07FFh \
@@ -22,8 +23,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\jairo\AppData\Local\Temp\s11ec.o \
-  dist/default/production\ControlRemoto.X.production.o 
+  C:\Users\david\AppData\Local\Temp\scno.o \
+  dist/default/production\Control_Remoto_Proyecto.production.o 
 
 Object code version is 3.11
 
@@ -32,26 +33,25 @@ Machine type is 18F4550
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\jairo\AppData\Local\Temp\s11ec.o
+C:\Users\david\AppData\Local\Temp\scno.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
-dist/default/production\ControlRemoto.X.production.o
+dist/default/production\Control_Remoto_Proyecto.production.o
                 intcode                               8        8        6        4       0
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 temp                                 1E       1E        1        1       1
-                smallconst                          800      800       18      400       0
-                text6                               C7E      C7E        8      40C       0
-                intcode_body                        B46      B46       AE      40C       0
-                text4                               976      976      10C      40C       0
-                text3                               BF4      BF4       70      40C       0
-                text2                               C76      C76        8      40C       0
-                text1                               A82      A82       C4      40C       0
-                text0                               818      818      15E      40C       0
+                text6                               45A      45A        8        4       0
+                intcode_body                        336      336       A2        4       0
+                text4                               166      166      10C        4       0
+                text3                               3D8      3D8       70        4       0
+                text2                               452      452        8        4       0
+                text1                               272      272       C4        4       0
+                text0                                12       12      154        4       0
                 cstackCOMRAM                          1        1       1D        1       1
-                cinit                               C64      C64       12      40C       0
+                cinit                               448      448        A        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -60,19 +60,18 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcode                               8        8        6         0
                 init                                  E        E        4         0
                 reset_vec                             0        0        4         0
-                text6                               C7E      C7E        8         0
-                intcode_body                        B46      B46       AE         0
-                text4                               976      976      10C         0
-                text3                               BF4      BF4       70         0
-                text2                               C76      C76        8         0
-                text1                               A82      A82       C4         0
-                text0                               818      818      15E         0
-                cinit                               C64      C64       12         0
+                text6                               45A      45A        8         0
+                intcode_body                        336      336       A2         0
+                text4                               166      166      10C         0
+                text3                               3D8      3D8       70         0
+                text2                               452      452        8         0
+                text1                               272      272       C4         0
+                text0                                12       12      154         0
+                cinit                               448      448        A         0
 
         CLASS   CONST          
 
         CLASS   SMALLCONST     
-                smallconst                          800      800       18         0
 
         CLASS   MEDIUMCONST    
 
@@ -120,9 +119,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  00001E  00001F         1       1  COMRAM  
-                intcode                        000008  00000A  000012         4       0  CODE    
-                smallconst                     000800  000018  000818       400       0  SMALLCON
-                text0                          000818  00046E  000C86       40C       0  CODE    
+                intcode                        000008  00045A  000462         4       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -138,17 +135,15 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BIGRAM           00001F-0007FF              7E1
         CODE             000004-000007                4
-                         000012-0007FF              7EE
-                         000C86-007FFF             737A
+                         000462-007FFF             7B9E
         COMRAM           00001F-00005F               41
         CONST            000004-000007                4
-                         000012-0007FF              7EE
-                         000C86-007FFF             737A
+                         000462-007FFF             7B9E
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000C86-007FFF             737A
+        MEDIUMCONST      000800-007FFF             7800
         RAM              000060-0007FF              100
         SFR              000F60-000FFF               A0
-        SMALLCONST       000C86-007FFF              100
+        SMALLCONST       000800-007FFF              100
         STACK            000060-0007FF              7A0
 
                                   Symbol Table
@@ -169,7 +164,6 @@ _INTEDG0                 (abs)        007F8E
 _INTEDG1                 (abs)        007F8D
 _IPR1bits                (abs)        000F9F
 _ISR                     intcode      000008
-_LATBbits                (abs)        000F8A
 _PIE1bits                (abs)        000F9D
 _PORTBbits               (abs)        000F81
 _RBIF                    (abs)        007F90
@@ -185,9 +179,9 @@ _TRISBbits               (abs)        000F93
 _TRISCbits               (abs)        000F94
 _TXREG                   (abs)        000FAD
 _TXSTAbits               (abs)        000FAC
-_USART_Init              text3        000BF4
-_USART_Init$1372         cstackCOMRAM 000014
-_USART_Tx                text2        000C76
+_USART_Init              text3        0003D8
+_USART_Init$1313         cstackCOMRAM 000014
+_USART_Tx                text2        000452
 __HRAM                   (abs)        000000
 __Habs1                  abs1         000000
 __Hbank0                 bank0        000000
@@ -238,8 +232,8 @@ __Hrdata                 rdata        000000
 __Hreset_vec             reset_vec    000004
 __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
-__Hsmallconst            smallconst   000818
-__Hspace_0               (abs)        000C86
+__Hsmallconst            smallconst   000000
+__Hspace_0               (abs)        000800
 __Hspace_1               (abs)        00001F
 __Hspace_2               (abs)        000000
 __Hspace_4               (abs)        60000E
@@ -303,7 +297,7 @@ __Lrdata                 rdata        000000
 __Lreset_vec             reset_vec    000000
 __Lrparam                rparam       000000
 __Lsfr                   sfr          000000
-__Lsmallconst            smallconst   000800
+__Lsmallconst            smallconst   000000
 __Lspace_0               (abs)        000000
 __Lspace_1               (abs)        000000
 __Lspace_2               (abs)        000000
@@ -318,18 +312,18 @@ __Ltext2                 text2        000000
 __Ltext3                 text3        000000
 __Ltext4                 text4        000000
 __Ltext6                 text6        000000
-__S0                     (abs)        000C86
+__S0                     (abs)        000462
 __S1                     (abs)        00001F
 __S2                     (abs)        000000
 __S4                     (abs)        000000
 __S5                     (abs)        000000
-___aldiv                 text4        000976
+___aldiv                 text4        000166
 ___aldiv@counter         cstackCOMRAM 00000A
 ___aldiv@dividend        cstackCOMRAM 000002
 ___aldiv@divisor         cstackCOMRAM 000006
 ___aldiv@quotient        cstackCOMRAM 00000C
 ___aldiv@sign            cstackCOMRAM 00000B
-___awdiv                 text1        000A82
+___awdiv                 text1        000272
 ___awdiv@counter         cstackCOMRAM 000006
 ___awdiv@dividend        cstackCOMRAM 000002
 ___awdiv@divisor         cstackCOMRAM 000004
@@ -341,28 +335,27 @@ ___param_bank            (abs)        000000
 ___rparam_used           (abs)        000001
 ___sp                    stack        000000
 __accesstop              (abs)        000060
-__activetblptr           (abs)        000001
-__end_of_ISR             intcode_body 000BF4
-__end_of_USART_Init      text3        000C64
-__end_of_USART_Tx        text2        000C7E
-__end_of___aldiv         text4        000A82
-__end_of___awdiv         text1        000B46
-__end_of__initialization cinit        000C64
-__end_of_main            text0        000976
-__end_ofi2_USART_Tx      text6        000C86
-__initialization         cinit        000C64
+__activetblptr           (abs)        000000
+__end_of_ISR             intcode_body 0003D8
+__end_of_USART_Init      text3        000448
+__end_of_USART_Tx        text2        00045A
+__end_of___aldiv         text4        000272
+__end_of___awdiv         text1        000336
+__end_of__initialization cinit        000448
+__end_of_main            text0        000166
+__end_ofi2_USART_Tx      text6        000462
+__initialization         cinit        000448
 __mediumconst            mediumconst  000000
-__pcinit                 cinit        000C64
+__pcinit                 cinit        000448
 __pcstackCOMRAM          cstackCOMRAM 000001
 __pintcode               intcode      000008
-__pintcode_body          intcode_body 000B46
-__psmallconst            smallconst   000800
-__ptext0                 text0        000818
-__ptext1                 text1        000A82
-__ptext2                 text2        000C76
-__ptext3                 text3        000BF4
-__ptext4                 text4        000976
-__ptext6                 text6        000C7E
+__pintcode_body          intcode_body 000336
+__ptext0                 text0        000012
+__ptext1                 text1        000272
+__ptext2                 text2        000452
+__ptext3                 text3        0003D8
+__ptext4                 text4        000166
+__ptext6                 text6        00045A
 __ramtop                 ramtop       000800
 __size_of_ISR            (abs)        000000
 __size_of_USART_Init     (abs)        000000
@@ -371,14 +364,14 @@ __size_of___aldiv        (abs)        000000
 __size_of___awdiv        (abs)        000000
 __size_of_main           (abs)        000000
 __size_ofi2_USART_Tx     (abs)        000000
-__smallconst             smallconst   000800
-_main                    text0        000818
+__smallconst             smallconst   000000
+_main                    text0        000012
 btemp                    temp         00001E
-end_of_initialization    cinit        000C64
+end_of_initialization    cinit        000448
 i2USART_Tx@data          cstackCOMRAM 000001
-i2_USART_Tx              text6        000C7E
+i2_USART_Tx              text6        00045A
 int$flags                temp         00001E
-int_func                 intcode_body 000B46
+int_func                 intcode_body 000336
 intlevel0                text         000000
 intlevel1                text         000000
 intlevel2                text         000000
@@ -389,7 +382,7 @@ main@umbralViejo         cstackCOMRAM 000018
 stackhi                  (abs)        0007FF
 stacklo                  (abs)        000060
 start                    init         00000E
-start_initialization     cinit        000C64
+start_initialization     cinit        000448
 ttemp5                   temp         00001F
 ttemp6                   temp         000022
 ttemp7                   temp         000026
@@ -433,7 +426,7 @@ Total ram usage:        6 bytes
 
  *************** function ___awdiv *****************
  Defined at:
-		line 7 in file "C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\awdiv.c"
+		line 7 in file "D:\Microchip\xc8\v2.20\pic\sources\c99\common\awdiv.c"
  Parameters:    Size  Location     Type
   dividend        2    1[COMRAM] int 
   divisor         2    3[COMRAM] int 
@@ -526,7 +519,7 @@ Total ram usage:        8 bytes
 
  *************** function ___aldiv *****************
  Defined at:
-		line 7 in file "C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\aldiv.c"
+		line 7 in file "D:\Microchip\xc8\v2.20\pic\sources\c99\common\aldiv.c"
  Parameters:    Size  Location     Type
   dividend        4    1[COMRAM] long 
   divisor         4    5[COMRAM] long 
@@ -559,7 +552,7 @@ Total ram usage:       14 bytes
 
  *************** function _ISR *****************
  Defined at:
-		line 79 in file "control.c"
+		line 76 in file "control.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -567,7 +560,7 @@ Total ram usage:       14 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0, cstack
+		wreg, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -620,31 +613,31 @@ Total ram usage:        1 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
+D:\Microchip\xc8\v2.20\pic\sources\c99\common\awdiv.c
+		___awdiv       		CODE           	0272	0000	197
+
+D:\Microchip\xc8\v2.20\pic\sources\c99\common\awdiv.c estimated size: 197
+
 LibreriaMicros.c
-		_USART_Tx      		CODE           	0C76	0000	9
-		_USART_Init    		CODE           	0BF4	0000	113
+		_USART_Tx      		CODE           	0452	0000	9
+		_USART_Init    		CODE           	03D8	0000	113
 
 LibreriaMicros.c estimated size: 122
 
-control.c
-		_ISR           		CODE           	0008	0000	181
-		_main          		CODE           	0818	0000	351
+D:\Microchip\xc8\v2.20\pic\sources\c99\common\aldiv.c
+		___aldiv       		CODE           	0166	0000	269
 
-control.c estimated size: 532
+D:\Microchip\xc8\v2.20\pic\sources\c99\common\aldiv.c estimated size: 269
+
+control.c
+		_ISR           		CODE           	0008	0000	169
+		_main          		CODE           	0012	0000	341
+
+control.c estimated size: 510
 
 shared
-		__initialization		CODE           	0C64	0000	1
-		i2_USART_Tx    		CODE           	0C7E	0000	9
+		__initialization		CODE           	0448	0000	1
+		i2_USART_Tx    		CODE           	045A	0000	9
 
 shared estimated size: 10
-
-C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\awdiv.c
-		___awdiv       		CODE           	0A82	0000	197
-
-C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\awdiv.c estimated size: 197
-
-C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\aldiv.c
-		___aldiv       		CODE           	0976	0000	269
-
-C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\aldiv.c estimated size: 269
 

@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/ControlRemoto.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=ControlRemoto.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=controlremoto.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/Control_Remoto_Proyecto.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=Control_Remoto_Proyecto.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=controlremotoproyecto/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/controlremoto.x/bin
+makeDirectory ${TMPDIR}/controlremotoproyecto/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/controlremoto.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/controlremotoproyecto.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/controlremoto.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/controlremotoproyecto.tar *
 checkReturnCode
 
 # Cleanup

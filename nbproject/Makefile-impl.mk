@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=ControlRemoto.X
+PROJECTNAME=Control_Remoto_Proyecto
 
 # Active Configuration
 DEFAULTCONF=default

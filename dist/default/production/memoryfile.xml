@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\ControlRemoto.X.production.hex">
+  <executable name="dist/default/production\Control_Remoto_Proyecto.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>32768</length>
-      <used>1172</used>
-      <free>31596</free>
+      <used>1118</used>
+      <free>31650</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
